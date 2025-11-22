@@ -1,7 +1,10 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 
-export async function GET(req: Request, { params }: { params: { code: string } }) {
+export async function GET(
+  req: Request,
+  { params }: { params: { code: string } }
+) {
   const { code } = params;
 
   const url = await prisma.url.findUnique({ where: { short: code } });
